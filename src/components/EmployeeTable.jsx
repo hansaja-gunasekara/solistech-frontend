@@ -14,7 +14,9 @@ import {
   MenuItem,
   TablePagination,
   Grid,
+  IconButton, // Import IconButton for delete and edit icons
 } from "@mui/material";
+import { Delete, Edit } from "@mui/icons-material"; // Import delete and edit icons
 
 const EmployeeTable = ({ employees }) => {
   const [page, setPage] = useState(0);
@@ -92,6 +94,7 @@ const EmployeeTable = ({ employees }) => {
                     Department
                   </div>
                 </TableCell>
+                <TableCell>Actions</TableCell> {/* New column for actions */}
               </TableRow>
             </TableHead>
             <TableBody>
@@ -106,6 +109,15 @@ const EmployeeTable = ({ employees }) => {
                     <TableCell>{employee.number}</TableCell>
                     <TableCell>{employee.birthofdate}</TableCell>
                     <TableCell>{employee.department}</TableCell>
+                    <TableCell>
+                      {/* Edit and delete icons */}
+                      <IconButton aria-label="edit">
+                        <Edit />
+                      </IconButton>
+                      <IconButton aria-label="delete">
+                        <Delete />
+                      </IconButton>
+                    </TableCell>
                   </TableRow>
                 ))}
             </TableBody>
@@ -128,3 +140,4 @@ const EmployeeTable = ({ employees }) => {
 };
 
 export default EmployeeTable;
+//
